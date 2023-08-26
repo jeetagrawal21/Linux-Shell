@@ -1,0 +1,185 @@
+
+Design Plan:
+
+Goal: To make a shell script in which has the following feature
+
+1. A tokenizer array for each string command passed to the input
+2. 2 built in commands:
+    cd : Cd to change directory
+    exit : To exit the running shell
+3. Execute other commands
+4. Also, execute commands that have single pipes in them
+
+Our Design:
+
+In order to get user input on the shell, we are in an infinite while loop. 
+Here, we prompt the user to provide commmands.
+
+Basically use it like a command line.
+
+As we collect user input using fgets(), we store it in a *char. That is 
+parsed to get rid of all the extra spaces using a while loop.
+
+After pasring the string, we then parse it to become a tokenizer array.
+Our tokenizer array is a *char[]. Here, each tokenizer is seperated from 
+each other and free from any spaces.
+
+From here, we have to execute them.
+
+We do that via 3 steps:
+
+1st : Check if it is built-in. i.e. if it is 'cd' or 'exit'
+    If 'cd' : change directory to as mentioned in the tokenized array
+    if 'exit' : exit shell and print Shell exited as a message.
+
+2nd : If not, check if there is a pipe present. If not then,
+
+    simply we call execv(args[0],args[1]). This will basically execute 
+    the command if it is valid with valid arguments.
+
+3rd : If pipe is present, we send it to execute_pipes
+
+    Here, we divide the arrays in two seperate arrays.
+    left_pipe and right_pipe
+    where left_pipe is an array of commands from the left side
+    and right_pipe is an array of commands from the right side.
+
+    And then similarly, we call execv on both left_pipe and right_pipe.
+    But using some file descriptors, pipe() and dup2() calls.
+
+    Basically, our code does is this,
+
+Since, we are using execv(), which takes the first arg of the tokenizer arrat
+it requires for the executable to be passed with a path to that executable.
+
+As every shell command is present in one of the standard paths of unix.
+we prepend each of those standard paths.
+
+path_array = {"/bin/","/usr/bin/","/usr/local/bin/",\
+"/student/binfo/bin/",""};
+At the end we have a empty string, that is for executing our 
+other executables for the assignment. 
+
+1st: Take input
+
+take_input{
+
+    print("CWD$")
+
+    fgets()
+}
+
+while (true){
+
+    take_input()
+
+    parsed(stored_input)
+    tokenizer_array = parse_input
+
+
+    if tokenizer_array has '|':
+        execute_pipe(commands)
+    else:
+        check if built-in command:
+            if yes:
+                execute_builtin_commands
+            else:
+                execute regular commands, using execv
+}
+
+in execute_built_in{
+
+    if 1st arg in array: 'cd':
+        chdir() to the 2nd argument of the array
+            if there is no 2nd argument:
+                BY DEFAULt, takes you to HOME directory
+                of the local system
+            
+    if 1st arg in arry: 'exit':
+        exit the shell.
+}
+
+in execute_regular_commands{
+
+    fork a process
+
+    for each_path from path_array:
+        prepend path in args[0]
+        check if,
+            execv(args[0],args)
+            if yes:
+                Command Successfull
+
+            else:
+                error
+        
+    exit the forked process
+}
+
+
+
+execute_pipe commands{
+    For commands with '|':
+
+        parse tokenizer_array:
+            left_pipe = command before |
+            right_pipe = command after |
+
+    initialize a pipe():
+
+    pipefd[2];
+    here 1st delimeter is for stdin and 2nd is for stdout.
+
+    process1 = fork()
+
+
+    if process1 is successfull:
+
+        //send std output to pipefd[1]
+        dup2(pipefd[1],STDOUT);
+        close both stdin and stdout for the pipe
+
+        for each_path from path_array:
+
+            
+            prepend path in left_pipe[0]
+            check if,
+                execv(left_pipe[0],left_pipe)
+                if yes:
+                    Command Successfull
+
+                else:
+                    error
+            
+        exit the forked process
+
+    process2 = fork()
+
+        if process2 is successfull:
+
+        //copy stdinput's file delimiter to pipefd[0]
+        dup2(pipefd[0],STDIN);
+        close both stdin and stdout for the pipe
+
+        for each_path from path_array:
+
+            prepend path in right_pipe[0]
+            check if,
+                execv(right_pipe[0],right_pipe)
+                if yes:
+                    Command Successfull
+
+                else:
+                    error
+            
+        exit the forked process
+
+    //Always good practice to close pipe.
+
+    close(pipefd[0])
+    close(pipefd[1])    
+
+    wait for each process to finish.
+}
+
+That is pretty much our design.THE END.

@@ -1,0 +1,468 @@
+
+
+TEST CASE 1:
+
+Input : 'gibberish gibberish'
+
+OUTPUT:
+
+Dir:/student/jea316/cmpt332-2022-group28$dfdsfsdf gdsfsdfsdfsdfs
+No such file or directory: Error in execv : 
+Error in execute_commands
+: No such file or directory
+No such file or directory: Error in execv : 
+Error in execute_commands
+: No such file or directory
+No such file or directory: Error in execv : 
+Error in execute_commands
+: No such file or directory
+No such file or directory: Error in execv : 
+Error in execute_commands
+: No such file or directory
+No such file or directory: Error in execv : 
+Error in execute_commands
+: No such file or directory
+Dir:/student/jea316/cmpt332-2022-group28$
+
+TEST CASE 2:
+
+Input : Nothing (literally enter)
+
+OUTPUT:
+
+Dir:/student/jea316/cmpt332-2022-group28$
+Dir:/student/jea316/cmpt332-2022-group28$
+
+TEST CASE 3:
+
+Input : cd /student
+
+OUTPUT:
+
+Dir:/student/jea316/cmpt332-2022-group28$cd /student
+Dir:/student$ 
+
+TEST CASE 4:
+
+Input : cd jea316/
+
+OUTPUT: 
+
+Dir:/student$ cd jea316            
+Dir:/student/jea316$
+
+TEST CASE 5:
+
+Input : cd ..
+
+OUTPUT: 
+
+Dir:/student/jea316$cd ..
+Dir:/student$
+
+TEST CASE 6:
+
+Input : exit
+
+OUTPUT: 
+
+Dir:/student$exit
+Shell Exited
+jea316@tux6:~/cmpt332-2022-group28> 
+
+
+TEST CASE 7:
+
+Input : exit
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$ls
+a1-phase1		partA2		       PartC.testresults.txt
+a1-phase2		partA2.c	       PartD.design.txt
+build			partA2.h	       PartD.testresults.txt
+fib.c			partA2.o	       partE
+fib.o			partA3		       partE.bash
+group-info.txt		partA3.c	       partE.c
+list_adders.c		partA3.h	       PartE.design.txt
+list.h			partA3.o	       PartE.testplan.txt
+list_movers.c		partA4		       PartE.testresults.txt
+list_removers.c		partA4.c	       pipe_output
+Makefile		partA4.h	       pipe_output.out
+mytestlist		partA4.o	       pipe_output.txt
+mytestlist.c		PartA.design.txt       README.md
+partA1.c		PartA.testplan.txt     temp.txt
+partA1.exe		PartA.testresults.txt  test_partB.txt
+partA1.exe.stackdump	partB.bash	       utils
+partA1.h		PartC.design.txt       xv6
+PartA1.testresults.txt	PartC.testplan.txt     xv6-diff.txt
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 8:
+
+Input : ls -la
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$ls -la
+total 1540
+drwxr-x---  9 jea316 csstudent   4096 Oct  7 03:51 .
+drwx------ 55 jea316 csstudent   4096 Oct  7 03:25 ..
+drwxr-x---  2 jea316 csstudent   4096 Oct  6 16:07 a1-phase1
+drwxr-x---  2 jea316 csstudent   4096 Oct  6 16:07 a1-phase2
+drwxr-x---  2 jea316 csstudent   4096 Oct  7 03:20 build
+-rwxr-x---  1 jea316 csstudent   1190 Oct  6 21:04 fib.c
+-rw-r-----  1 jea316 csstudent   3896 Oct  7 03:20 fib.o
+drwxr-x---  8 jea316 csstudent   4096 Oct  7 03:47 .git
+-rw-r-----  1 jea316 csstudent     10 Oct  6 16:07 .gitignore
+-rw-r-----  1 jea316 csstudent     64 Oct  6 16:15 group-info.txt
+-rw-r-----  1 jea316 csstudent   6667 Oct  6 16:15 list_adders.c
+-rw-r-----  1 jea316 csstudent   4192 Oct  6 16:15 list.h
+-rw-r-----  1 jea316 csstudent   2782 Oct  6 16:15 list_movers.c
+-rw-r-----  1 jea316 csstudent   1701 Oct  6 16:15 list_removers.c
+-rw-r-----  1 jea316 csstudent   2318 Oct  7 00:07 Makefile
+-rwxr-x---  1 jea316 csstudent  44072 Oct  7 03:20 mytestlist
+-rw-r-----  1 jea316 csstudent  14563 Oct  6 16:15 mytestlist.c
+-rw-r-----  1 jea316 csstudent 327680 Sep 22 19:41 .nfs0000000003960e4000000074
+-rwxr-x---  1 jea316 csstudent   4920 Oct  7 00:08 partA1.c
+-rwxr-----  1 jea316 csstudent  76005 Oct  7 00:09 partA1.exe
+-rwxr-----  1 jea316 csstudent   1097 Oct  6 23:55 partA1.exe.stackdump
+-rwxr-x---  1 jea316 csstudent    962 Oct  6 21:04 partA1.h
+-rwxr-----  1 jea316 csstudent 539374 Oct  7 00:11 PartA1.testresults.txt
+-rwxr-x---  1 jea316 csstudent 113304 Oct  7 03:20 partA2
+-rw-r-----  1 jea316 csstudent   4735 Oct  6 21:22 partA2.c
+-rw-r-----  1 jea316 csstudent    981 Oct  6 21:04 partA2.h
+-rw-r-----  1 jea316 csstudent  12848 Oct  7 03:20 partA2.o
+-rwxr-x---  1 jea316 csstudent  30328 Oct  7 03:20 partA3
+-rw-r-----  1 jea316 csstudent   4737 Oct  6 21:22 partA3.c
+-rw-r-----  1 jea316 csstudent   1004 Oct  6 21:04 partA3.h
+-rw-r-----  1 jea316 csstudent  13896 Oct  7 03:20 partA3.o
+-rwxr-x---  1 jea316 csstudent  30904 Oct  7 03:20 partA4
+-rw-r-----  1 jea316 csstudent   6676 Oct  6 21:22 partA4.c
+-rw-r-----  1 jea316 csstudent   1022 Oct  6 21:04 partA4.h
+-rw-r-----  1 jea316 csstudent  16624 Oct  7 03:20 partA4.o
+-rw-r-----  1 jea316 csstudent   5867 Oct  6 16:15 PartA.design.txt
+-rw-r-----  1 jea316 csstudent   2297 Oct  6 16:15 PartA.testplan.txt
+-rw-r-----  1 jea316 csstudent  27003 Oct  6 16:15 PartA.testresults.txt
+-rwxr-x---  1 jea316 csstudent   2197 Oct  6 21:04 partB.bash
+-rw-r-----  1 jea316 csstudent   4081 Oct  6 16:15 PartC.design.txt
+-rw-r-----  1 jea316 csstudent  12986 Oct  6 16:15 PartC.testplan.txt
+-rw-r-----  1 jea316 csstudent   6772 Oct  6 16:15 PartC.testresults.txt
+-rw-r-----  1 jea316 csstudent   3587 Oct  6 23:30 PartD.design.txt
+-rw-r-----  1 jea316 csstudent   3253 Oct  6 23:30 PartD.testresults.txt
+-rwxr-x---  1 jea316 csstudent  32848 Oct  7 03:51 partE
+-rw-r-----  1 jea316 csstudent    414 Oct  6 16:14 partE.bash
+-rw-r-----  1 jea316 csstudent   9029 Oct  7 03:51 partE.c
+-rw-r-----  1 jea316 csstudent   5487 Oct  7 03:39 PartE.design.txt
+-rw-r-----  1 jea316 csstudent   2507 Oct  7 03:46 PartE.testplan.txt
+-rw-r-----  1 jea316 csstudent   3030 Oct  7 03:55 PartE.testresults.txt
+-rw-r-----  1 jea316 csstudent  12288 Oct  7 03:49 .PartE.testresults.txt.swp
+-rw-------  1 jea316 csstudent      5 Oct  6 22:15 pipe_output
+-rw-------  1 jea316 csstudent    405 Oct  6 21:17 pipe_output.out
+-rw-------  1 jea316 csstudent    417 Oct  6 22:21 pipe_output.txt
+-rw-r-----  1 jea316 csstudent    676 Oct  6 16:15 README.md
+-rwxr-----  1 jea316 csstudent   1733 Oct  6 23:47 temp.txt
+-rw-r-----  1 jea316 csstudent     30 Oct  6 16:15 test_partB.txt
+drwxr-x---  2 jea316 csstudent   4096 Oct  6 16:07 utils
+drwxr-xr-x  2 jea316 csstudent   4096 Oct  5 01:18 .vscode
+drwxr-x---  5 jea316 csstudent   4096 Oct  6 21:04 xv6
+-rw-r-----  1 jea316 csstudent   5553 Oct  6 23:30 xv6-diff.txt
+
+
+TEST CASE 9:
+
+Input : cat README.md
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$cat README.md
+# cmpt332-2022-group28
+# Editing this README
+
+## Name
+CMPT 332 Git Repo
+
+## Description
+This will act as a git repo for all assignments (including labs) for CMPT 332 
+Fall 2022.
+
+## Visuals
+TODO
+
+## Installation
+TODO
+
+## Usage
+TODO
+
+## Support
+Contact lead developers for any support via their emails:
+- [Vyom Patel](vyom.patel@usask.ca)
+- [Jeet Agrawal](jea316@usask.ca)
+
+## Contributing
+This is a private repository for the purpose of a course in Operating 
+Systems. Currently, we have no plans for accepting contributions.
+
+## Authors and acknowledgment
+- Vyom Patel
+- Jeet Agrawal
+- Dr. Dwight Makaroff
+
+## License
+TODO
+
+## Project status
+Working
+TODO: Update appropriately
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 10:
+
+Input : echo CMPT 332
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$echo CMPT332
+CMPT332
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 11:
+
+Input : ls | wc
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$ls | wc
+     54      54     662
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+
+
+
+TEST CASE 12:
+
+Input : cat Makefile | wc
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$cat Makefile | wc
+     87     252    2318
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+
+
+TEST CASE 13:
+
+Input : echo test | wc -c
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$echo test | wc -c
+5
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 14:
+
+Input : cat Makefile | head -5
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$cat Makefile | head -5
+######################################################
+#   Partner 1:                                      #
+#           Name: Vyom Patel                        #
+#           NSID: vnp614                            #
+#           Student No: 11253862                    #
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+
+TEST CASE 15:
+
+Input : cat Makefile | head -5 | sort
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$cat Makefile | head -5 | sort
+More than one pipe present.
+Try again with one pipe.
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+
+TEST CASE 16:
+
+Input : make clean
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$make clean
+'rm -rf ./build *.o *.a partA1 partA2 partA3 partA4 mytestlist partE
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 17:
+
+Input : make
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$make
+mkdir -p ./build
+gcc -o build/mytestlist.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c 
+mytestlist.c
+gcc -o build/list_adders.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c 
+list_adders.c
+gcc -o build/list_movers.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c 
+list_movers.c
+gcc -o build/list_removers.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c 
+list_removers.c
+ar -rcs build/liblist.a build/list_adders.o build/list_movers.o build/
+list_removers.o
+gcc -o mytestlist build/mytestlist.o -L./build -llist
+gcc -o partA2.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c partA2.c -I/
+student/cmpt332/pthreads
+gcc -o fib.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c fib.c
+gcc -o partA2 partA2.o fib.o -L/student/cmpt332/pthreads/lib/Linuxx86_64 
+-lpthreads 
+gcc -o partA3.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c partA3.c
+gcc -o partA3 partA3.o fib.o -lpthread
+gcc -o partA4.o -g -std=gnu90 -Wall -Werror -pedantic -Wextra -c partA4.c
+gcc -o partA4 partA4.o fib.o
+gcc -o partE -g -std=gnu90 -Wall -Werror -pedantic -Wextra partE.c
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 18:
+
+Input : ./partA2 4 4 40
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$./partA2 4 4 40
+[PARENT] Child created: PID: 2 	 threadID: 0
+[PARENT] Child created: PID: 3 	 threadID: 1
+[PARENT] Child created: PID: 4 	 threadID: 2
+[PARENT] Child created: PID: 5 	 threadID: 3
+[PARENT] Going to sleep for 4 seconds
+
+
+********************************************************
+[PARENT] PID 2:
+[PARENT] Total recursive Fib() calls: 75949945
+[PARENT] Total elapsed time: 3.940000 seconds
+
+********************************************************
+[PARENT] PID 3:
+[PARENT] Total recursive Fib() calls: 72951595
+[PARENT] Total elapsed time: 3.880000 seconds
+
+********************************************************
+[PARENT] PID 4:
+[PARENT] Total recursive Fib() calls: 61090150
+[PARENT] Total elapsed time: 3.820000 seconds
+
+********************************************************
+[PARENT] PID 5:
+[PARENT] Total recursive Fib() calls: 52925827
+[PARENT] Total elapsed time: 3.760000 seconds
+
+exiting threads
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 19:
+
+Input : ./partA3 4 4 40
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$./partA3 4 4 40
+[PARENT] Child created PID: 140253488117312 	 threadID: 0
+[PARENT] Child created PID: 140253479724608 	 threadID: 1
+[PARENT] Child created PID: 140253471331904 	 threadID: 2
+[PARENT] Child created PID: 140253462939200 	 threadID: 3
+[PARENT] Going to sleep for 4 seconds.
+
+********************************************************
+[PARENT] PID 140253488117312:
+[PARENT] Total Fib calls: 164662588
+[PARENT] Total elapsed time: 4 seconds
+
+********************************************************
+[PARENT] PID 140253479724608:
+[PARENT] Total Fib calls: 120258215
+[PARENT] Total elapsed time: 4 seconds
+
+********************************************************
+[PARENT] PID 140253471331904:
+[PARENT] Total Fib calls: 22707654
+[PARENT] Total elapsed time: 4 seconds
+
+********************************************************
+[PARENT] PID 140253462939200:
+[PARENT] Total Fib calls: 71077760
+[PARENT] Total elapsed time: 4 seconds
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+
+TEST CASE 20:
+
+Input : ./partA4 4 4 40
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$./partA4 4 4 40
+[PARENT] Child created with PID: 3448126 
+[PARENT] Child created with PID: 3448127 
+[PARENT] Child created with PID: 3448128 
+[PARENT] Child created with PID: 3448129 
+[TIMER] Entering Timer thread 
+[TIMER] Sending timeouts to parents and children
+
+
+
+
+********************************************************
+********************************************************
+********************************************************
+********************************************************
+[CHILD] PID: 3448126 failed to finish in time
+[CHILD] PID: 3448127 failed to finish in time
+[CHILD] PID: 3448128 failed to finish in time
+[CHILD] Total recursive Fib() calls: 9042005
+[CHILD] PID: 3448129 failed to finish in time
+[CHILD] Total recursive Fib() calls: 9051220
+[CHILD] Total recursive Fib() calls: 9020952
+ [CHILD] Total elapsed time: 4 seconds
+[CHILD] Total recursive Fib() calls: 9014237
+ [CHILD] Total elapsed time: 4 seconds
+ [CHILD] Total elapsed time: 4 seconds
+ [CHILD] Total elapsed time: 4 seconds
+[PARENT] SIGALRM received. Waiting for children to finish....
+[TIMER] Killing the timer process
+Dir:/student/jea316/cmpt332-2022-group28$
+
+
+TEST CASE 21:
+
+Input : ./partE ( Yes running the shell again in this shell)
+
+OUTPUT: 
+
+Dir:/student/jea316/cmpt332-2022-group28$
+Dir:/student/jea316/cmpt332-2022-group28$exit
+Shell Exited
+Dir:/student/jea316/cmpt332-2022-group28$
+
+Note : After exit back to the previous shell
+
+
+THE END.

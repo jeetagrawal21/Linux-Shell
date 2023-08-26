@@ -1,0 +1,93 @@
+
+In our test plan, we have decided it to give our shell a 
+varying range of input.
+
+
+1st)
+So, we are going to try with some gibberish input to show that
+anything which is not an executable will be not executed by any of the 
+paths in the path array
+
+Input : 'gibberish gibberish'
+Expected Output : None of the paths have that command:
+                  Error in execv for each execv call.
+
+Input : nothing(just an enter or '\n')
+Expected Output : Nothing, enter something vali
+
+2nd) 
+
+If input is valid
+
+then for built in commands:
+
+Input : 'cd /student'
+Expected Output : Directs you to the /student directory
+                  Prompts the updated cwd 
+
+    
+Input : 'cd'
+Expected Output : Directs you to the $HOME directory
+                  Prompts the updated cwd 
+
+Input : 'cd g dfg dfgd'
+Expected Output : No such path (if no such path)
+                  Prompts again
+
+Input : 'exit'
+Expected Output : Exits the shell
+                  echo Shell Exited 
+
+
+3rd)
+
+Regular Commands 
+
+Input : 'ls'
+Expected Output : Lists all current items
+
+Input : 'ls -al'
+Expected Output : All the detailed list of ls
+
+Input : 'cat Makefile'
+Expected Output : displays Makefile
+
+Input : 'echo CMPT332'
+Expected Output : CMPT332
+
+Input : 'echo This class is too hard!'
+Expected Output : This class is too hard! 
+
+
+More
+
+
+4th)
+
+Commands with pipes
+
+Input : '|'
+Expected Output : Nothing happens
+
+Input : 'cat Makefile | wc'
+Expected Output : works as it should
+
+Input : cat test.txt | head -5 | sort
+Expected Output : More than 2 pipes present
+                  Try agin with one pipe
+
+
+Input : 'echo test | wc -c'
+Expected Output : 5
+
+and more.....
+
+5th)
+
+Running other executables from the assignment.
+
+./partA2/A3/A4 with input
+
+Running shell script within shell script.
+
+THE END.
